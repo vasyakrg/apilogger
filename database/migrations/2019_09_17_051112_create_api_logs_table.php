@@ -19,6 +19,7 @@ class CreateApiLogsTable extends Migration
             $table->string('url');
             $table->longText('payload');
             $table->longText('response');
+            $table->longText('response_data');
             $table->string('duration');
             $table->string('controller');
             $table->string('action');

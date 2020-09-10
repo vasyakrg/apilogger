@@ -78,6 +78,7 @@ abstract class AbstractLogger{
         $this->logs['url'] = $request->path();
         $this->logs['payload'] = $this->payload($request);
         $this->logs['response'] = $response->status();
+        $this->logs['response_data'] = json_encode($response->original['message']);
         $this->logs['duration'] = number_format($endTime - LARAVEL_START, 3);
         $this->logs['controller'] = $controller;
         $this->logs['action'] = $action;
@@ -99,11 +100,12 @@ abstract class AbstractLogger{
         $model->url = $data[2];
         $model->payload = $data[3];
         $model->response = $data[4];
-        $model->duration = $data[5];
-        $model->controller = $data[6];
-        $model->action = $data[7];
-        $model->models = $data[8];
-        $model->ip = $data[9];
+        $model->response_data = $data[5];
+        $model->duration = $data[6];
+        $model->controller = $data[7];
+        $model->action = $data[8];
+        $model->models = $data[9];
+        $model->ip = $data[10];
         return $model;
     }
 
